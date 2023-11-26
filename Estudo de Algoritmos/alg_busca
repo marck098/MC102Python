@@ -1,0 +1,51 @@
+#busca sequencial
+# algoritimo mais simples; percorre toda a lista comparando um a um os elementos
+def buscaSequencial(lista, chave):
+    indice = 0
+    for numero in lista:
+        if numero == chave:
+            return indice
+        indice = indice + 1
+    return -1
+
+def buscaSequencial_alternativo(lista, chave):
+    n = len(lista)
+    for indice in range(n):
+        if lista[indice] == chave:
+            return indice
+    return -1
+print("Busca Sequencial")
+
+chave = 45
+lista = [20, 5, 15, 24, 67, 45, 1, 76, 21, 11]
+pos = buscaSequencial_alternativo(lista, chave)
+if pos != -1:
+    print("Posição da Chave",chave, "na lista:", pos)
+else:
+    print("A chave",chave, "não se encontra na lista")
+
+##Busca Binaria
+#busca mais eficiente; requer que a lista esteja ordenada
+
+def buscaBinaria(lista, chave):
+    pos_ini = 0
+    pos_fim = len(lista) - 1
+
+    while pos_ini <= pos_fim:
+        pos_meio = (pos_ini + pos_fim)//2
+
+        if lista[pos_meio] == chave:
+            return pos_meio
+        elif lista[pos_meio] > chave:
+            pos_fim = pos_meio - 1
+        else:
+            pos_ini = pos_meio + 1
+    return -1
+print("Busca Binaria")
+chave2 = 15
+print(sorted(lista))
+pos1 = buscaBinaria(sorted(lista), chave2)
+if pos1 != -1:
+    print("Posição da Chave",chave2, "na lista:", pos1)
+else:
+    print("A chave",chave2, "não se encontra na lista")

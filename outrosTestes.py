@@ -89,3 +89,7 @@
 # print(ruas_horizontais)
 # lista = [int(i) for i in range(7,10)]
 # print(lista)
+numeroInt = 475
+numero = str(numeroInt)
+crescente  = int(''.join(sorted(numero)))
+decrescente  = int(''.join(sorted(numero,reverse = True)))
